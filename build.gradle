@@ -1,0 +1,28 @@
+group 'com.aspekt'
+version '1.0'
+
+buildscript {
+    ext.kotlin_version = '1.1.1'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+}
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/com/aspekt/kotlin'
+    test.kotlin.srcDirs += 'src/test/com/aspekt/kotlin'
+    main.allSource.srcDirs.each { it.mkdirs() }
+}
